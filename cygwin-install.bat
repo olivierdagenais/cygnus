@@ -1,7 +1,6 @@
 @ECHO OFF
-REM -- Automates cygwin installation
-REM -- Source: https://github.com/rtwolf/cygwin-auto-install
-REM -- Based on: https://gist.github.com/wjrogers/1016065
+REM -- Automates Cygwin installation
+REM -- See README.md file for history and details
  
 SETLOCAL
  
