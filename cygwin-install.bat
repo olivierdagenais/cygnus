@@ -5,7 +5,7 @@ REM -- See README.md file for history and details
 SETLOCAL
  
 REM -- Change to the directory of the executing batch file
-CD %~dp0
+CD /D %~dp0
 
 REM -- Download the Cygwin installer
 IF NOT EXIST cygwin-setup.exe (
