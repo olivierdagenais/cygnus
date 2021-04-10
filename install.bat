@@ -28,7 +28,7 @@ SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2,subversion
 REM -- More info on command line options at: https://cygwin.com/faq/faq.html#faq.setup.cli
 REM -- Do it!
 ECHO *** INSTALLING DEFAULT PACKAGES
-cygwin-setup --quiet-mode --no-desktop --download --local-install --no-verify -s %SITE% -l "%LOCALDIR%" -R "%ROOTDIR%"
+cygwin-setup --quiet-mode --no-desktop --download --local-install --no-verify --site %SITE% --local-package-dir "%LOCALDIR%" --root "%ROOTDIR%"
 ECHO.
 ECHO.
 ECHO *** INSTALLING CUSTOM PACKAGES
