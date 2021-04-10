@@ -10,7 +10,7 @@ CD /D %~dp0
 REM -- Download the Cygwin installer
 IF NOT EXIST cygwin-setup.exe (
 	ECHO cygwin-setup.exe NOT found! Downloading installer...
-	bitsadmin /transfer cygwinDownloadJob /download /priority normal https://cygwin.com/setup-x86_64.exe %CD%\\cygwin-setup.exe
+	bitsadmin /transfer cygwinDownloadJob /download /priority high https://cygwin.com/setup-x86_64.exe %CD%\\cygwin-setup.exe
 ) ELSE (
 	ECHO cygwin-setup.exe found! Skipping installer download...
 )
