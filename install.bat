@@ -16,7 +16,7 @@ IF NOT EXIST cygwin-setup.exe (
 )
  
 REM -- Configure our paths
-SET SITE=http://cygwin.mirrors.pair.com/
+SET SITE=https://mirror.csclub.uwaterloo.ca/cygwin/
 SET LOCALDIR=%CD%
 SET ROOTDIR=C:/cygwin
  
