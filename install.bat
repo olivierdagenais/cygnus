@@ -21,9 +21,9 @@ SET LOCALDIR=%CD%
 SET ROOTDIR=C:/cygwin
  
 REM -- These are the packages we will install (in addition to the default packages)
-SET PACKAGES=mintty,wget,ctags,diffutils,git,git-completion,git-svn,stgit,mercurial
+SET PACKAGES=mintty,wget,ctags,diffutils,git,git-completion
 REM -- These are necessary for apt-cyg install, do not change. Any duplicates will be ignored.
-SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2,subversion
+SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2
  
 REM -- More info on command line options at: https://cygwin.com/faq/faq.html#faq.setup.cli
 REM -- Do it!
@@ -43,9 +43,9 @@ ECHO.
 
 ECHO apt-cyg installing.
 set PATH=%ROOTDIR%/bin;%PATH%
-%ROOTDIR%/bin/bash.exe -c 'svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/'
+%ROOTDIR%/bin/bash.exe -c 'wget -N https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg --output-document=/bin/apt-cyg'
 %ROOTDIR%/bin/bash.exe -c 'chmod +x /bin/apt-cyg'
-ECHO apt-cyg installed if it says somin like "A    /bin" and "A   /bin/apt-cyg" and "Exported revision 18" or some other number.
+ECHO apt-cyg installed
 
 ENDLOCAL
  
