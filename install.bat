@@ -12,6 +12,10 @@ SET SITE=https://mirror.csclub.uwaterloo.ca/cygwin/
 SET LOCALDIR=%CD%
 SET ROOTDIR=C:\cygwin
 
+IF NOT EXIST "%ROOTDIR%" (
+	MKDIR "%ROOTDIR%"
+)
+
 REM -- Download the Cygwin installer
 IF NOT EXIST cygwin-setup.exe (
 	ECHO cygwin-setup.exe NOT found! Downloading installer...
