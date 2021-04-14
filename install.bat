@@ -7,6 +7,11 @@ SETLOCAL
 REM -- Change to the directory of the executing batch file
 CD /D %~dp0
 
+REM -- Configure our paths
+SET SITE=https://mirror.csclub.uwaterloo.ca/cygwin/
+SET LOCALDIR=%CD%
+SET ROOTDIR=C:/cygwin
+
 REM -- Download the Cygwin installer
 IF NOT EXIST cygwin-setup.exe (
 	ECHO cygwin-setup.exe NOT found! Downloading installer...
@@ -14,11 +19,6 @@ IF NOT EXIST cygwin-setup.exe (
 ) ELSE (
 	ECHO cygwin-setup.exe found! Skipping installer download...
 )
- 
-REM -- Configure our paths
-SET SITE=https://mirror.csclub.uwaterloo.ca/cygwin/
-SET LOCALDIR=%CD%
-SET ROOTDIR=C:/cygwin
  
 REM -- These are the packages we will install (in addition to the default packages)
 SET PACKAGES=mintty,wget,ctags,diffutils,git,git-completion
