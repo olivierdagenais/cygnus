@@ -17,11 +17,12 @@ IF NOT EXIST "%ROOTDIR%" (
 )
 
 REM -- Download the Cygwin installer
-IF NOT EXIST cygwin-setup.exe (
-	ECHO cygwin-setup.exe NOT found! Downloading installer...
-	bitsadmin /transfer cygwinDownloadJob /download /priority high https://cygwin.com/setup-x86_64.exe %CD%\\cygwin-setup.exe
+SET SETUP_PATH=%CD%\\cygwin-setup.exe
+IF NOT EXIST "%SETUP_PATH%" (
+	ECHO %SETUP_PATH% NOT found! Downloading installer...
+	bitsadmin /transfer cygwinDownloadJob /download /priority high https://cygwin.com/setup-x86_64.exe "%SETUP_PATH%"
 ) ELSE (
-	ECHO cygwin-setup.exe found! Skipping installer download...
+	ECHO %SETUP_PATH% found! Skipping installer download...
 )
  
 REM -- These are the packages we will install (in addition to the default packages)
@@ -32,11 +33,11 @@ SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2
 REM -- More info on command line options at: https://cygwin.com/faq/faq.html#faq.setup.cli
 REM -- Do it!
 ECHO *** INSTALLING DEFAULT PACKAGES
-cygwin-setup --quiet-mode --no-desktop --download --local-install --no-verify --site %SITE% --local-package-dir "%LOCALDIR%" --root "%ROOTDIR%"
+"%SETUP_PATH%" --quiet-mode --no-desktop --download --local-install --no-verify --site %SITE% --local-package-dir "%LOCALDIR%" --root "%ROOTDIR%"
 ECHO.
 ECHO.
 ECHO *** INSTALLING CUSTOM PACKAGES
-cygwin-setup -q -d -D -L -X -s %SITE% -l "%LOCALDIR%" -R "%ROOTDIR%" -P %PACKAGES%
+"%SETUP_PATH%" -q -d -D -L -X -s %SITE% -l "%LOCALDIR%" -R "%ROOTDIR%" -P %PACKAGES%
  
 REM -- Show what we did
 ECHO.
