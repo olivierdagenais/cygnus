@@ -48,7 +48,7 @@ ECHO.
 
 ECHO apt-cyg installing.
 set PATH=%ROOTDIR%/bin;%PATH%
-%ROOTDIR%/bin/bash.exe -c 'wget -N https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg --output-document=/bin/apt-cyg'
+%ROOTDIR%/bin/bash.exe -c 'wget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg --output-document=/bin/apt-cyg'
 %ROOTDIR%/bin/bash.exe -c 'chmod +x /bin/apt-cyg'
 ECHO apt-cyg installed
 
