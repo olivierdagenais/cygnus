@@ -33,12 +33,8 @@ SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2
 REM -- More info on command line options at: https://cygwin.com/faq/faq.html#faq.setup.cli
 REM -- Do it!
 ECHO *** INSTALLING DEFAULT PACKAGES
-"%SETUP_PATH%" --quiet-mode --no-desktop --download --local-install --no-verify --site %SITE% --local-package-dir "%LOCALDIR%" --root "%ROOTDIR%"
-ECHO.
-ECHO.
-ECHO *** INSTALLING CUSTOM PACKAGES
-"%SETUP_PATH%" -q -d -D -L -X -s %SITE% -l "%LOCALDIR%" -R "%ROOTDIR%" -P %PACKAGES%
- 
+"%SETUP_PATH%" --quiet-mode --no-desktop --download --local-install --no-verify --site %SITE% --local-package-dir "%LOCALDIR%" --root "%ROOTDIR%" --packages %PACKAGES%
+
 REM -- Show what we did
 ECHO.
 ECHO.
