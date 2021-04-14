@@ -10,7 +10,7 @@ CD /D %~dp0
 REM -- Configure our paths
 SET SITE=https://mirror.csclub.uwaterloo.ca/cygwin/
 SET LOCALDIR=%CD%
-SET ROOTDIR=C:/cygwin
+SET ROOTDIR=C:\cygwin
 
 REM -- Download the Cygwin installer
 IF NOT EXIST cygwin-setup.exe (
