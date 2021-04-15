@@ -2,8 +2,21 @@
 # For a searchable list of packages that can be installed with Cygwin, see https://cygwin.com/packages/
 # Please keep the entries in this file sorted alphabetically!
 ctags
+curl
 diffutils
+emacs
 git
-git-completion
+gnupg2
+gzip
+mc
 mintty
-wget
+ncdu
+ncmpc
+ncurses
+openssh
+qrencode
+rsync
+screen
+units
+unzip
+vim
