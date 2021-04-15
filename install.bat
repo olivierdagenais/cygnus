@@ -20,7 +20,7 @@ REM -- Download the Cygwin installer
 SET SETUP_PATH=%ROOTDIR%\setup-x86_64.exe
 IF NOT EXIST "%SETUP_PATH%" (
 	ECHO %SETUP_PATH% NOT found! Downloading installer...
-	bitsadmin /transfer cygwinDownloadJob /download /priority high https://cygwin.com/setup-x86_64.exe "%SETUP_PATH%"
+	bitsadmin /transfer cygwinDownloadJob /download /priority foreground https://cygwin.com/setup-x86_64.exe "%SETUP_PATH%"
 ) ELSE (
 	ECHO %SETUP_PATH% found! Skipping installer download...
 )
