@@ -2,7 +2,7 @@
 REM -- Automates Cygwin installation
 REM -- See README.md file for history and details
  
-SETLOCAL
+SETLOCAL EnableDelayedExpansion
  
 REM -- Change to the directory of the executing batch file
 CD /D %~dp0
@@ -25,11 +25,13 @@ IF NOT EXIST "%SETUP_PATH%" (
 	ECHO %SETUP_PATH% found! Skipping installer download...
 )
  
-REM -- These are the packages we will install (in addition to the default packages)
-SET PACKAGES=mintty,wget,ctags,diffutils,git,git-completion
+SET PACKAGES=cygwin
+FOR /F "eol=#" %%i in (%~dp0packages.txt) do (
+	SET PACKAGES=!PACKAGES!,%%i
+)
 REM -- These are necessary for apt-cyg install, do not change. Any duplicates will be ignored.
 SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2
- 
+
 REM -- More info on command line options at: https://cygwin.com/faq/faq.html#faq.setup.cli
 REM -- Do it!
 ECHO *** INSTALLING DEFAULT PACKAGES
