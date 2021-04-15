@@ -49,6 +49,4 @@ set PATH=%ROOTDIR%/bin;%PATH%
 ECHO apt-cyg installed
 
 ENDLOCAL
- 
-PAUSE
 EXIT /B 0
