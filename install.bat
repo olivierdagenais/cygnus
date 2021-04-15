@@ -9,8 +9,8 @@ CD /D %~dp0
 
 REM -- Configure our paths
 SET SITE=https://mirror.csclub.uwaterloo.ca/cygwin/
-SET LOCALDIR=%CD%
 SET ROOTDIR=C:\cygwin
+SET LOCALDIR=%ROOTDIR%\dist
 
 IF NOT EXIST "%ROOTDIR%" (
 	MKDIR "%ROOTDIR%"
