@@ -24,13 +24,8 @@ IF NOT EXIST "%SETUP_PATH%" (
 )
  
 SET PACKAGES=cygwin
-IF EXIST "%~dp0packages.txt" (
-	ECHO *** Loading packages from %~dp0packages.txt...
-	FOR /F "eol=#" %%i in (%~dp0packages.txt) do (
-		SET PACKAGES=!PACKAGES!,%%i
-	)
-	ECHO *** Packages from %~dp0packages.txt loaded.
-)
+Call :LoadPackages "%~dp0packages.txt"
+
 REM -- These are necessary for apt-cyg install, do not change. Any duplicates will be ignored.
 SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2
 
@@ -63,3 +58,14 @@ ECHO *** apt-cyg installed.
 
 ENDLOCAL
 EXIT /B 0
+
+:LoadPackages
+IF EXIST "%~1" (
+	ECHO *** Loading packages from %~1...
+	FOR /F "eol=#" %%i in (%~1) do (
+		SET PACKAGES=!PACKAGES!,%%i
+	)
+	ECHO *** Packages from %~1 loaded.
+	EXIT /B 0
+)
+EXIT /B 1
