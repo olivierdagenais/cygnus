@@ -1,6 +1,7 @@
 # Cygwin packages to install, one per line.
 # For a searchable list of packages that can be installed with Cygwin, see https://cygwin.com/packages/
 # Please keep the entries in this file sorted alphabetically!
+chere
 ctags
 curl
 diffutils
