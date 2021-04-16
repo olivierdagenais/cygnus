@@ -60,10 +60,12 @@ IF NOT EXIST "%ROOTDIR%\home.old" (
 	ECHO *** Junction /home -^> %PROFILES_DIR% created.
 )
 
-ECHO *** Installing apt-cyg...
-"%ROOTDIR%/bin/wget" https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg --output-document=/bin/apt-cyg
-"%ROOTDIR%/bin/chmod" +x /bin/apt-cyg
-ECHO *** apt-cyg installed.
+IF NOT EXIST "%ROOTDIR%\bin\apt-cyg" (
+	ECHO *** Installing apt-cyg...
+	"%ROOTDIR%/bin/wget" https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg --output-document=/bin/apt-cyg
+	"%ROOTDIR%/bin/chmod" +x /bin/apt-cyg
+	ECHO *** apt-cyg installed.
+)
 
 ENDLOCAL
 EXIT /B 0
