@@ -44,6 +44,16 @@ ECHO cygwin installation updated
 ECHO  - %PACKAGES%
 ECHO.
 
+REM TODO: Fetch and decode PROFILES_DIR.
+REM `"%ROOTDIR%/bin/regtool" get "/HKLM/Software/Microsoft/Windows NT/CurrentVersion/ProfileList/ProfilesDirectory"`
+REM ...might give us something like "%SystemDrive%\Users" which would have to be expanded
+SET PROFILES_DIR=C:\Users
+
+IF NOT EXIST "%ROOTDIR%\home.old" (
+	MOVE "%ROOTDIR%\home" "%ROOTDIR%\home.old"
+	MKLINK /J "%ROOTDIR%\home" "%PROFILES_DIR%"
+)
+
 ECHO apt-cyg installing.
 "%ROOTDIR%/bin/wget" https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg --output-document=/bin/apt-cyg
 "%ROOTDIR%/bin/chmod" +x /bin/apt-cyg
