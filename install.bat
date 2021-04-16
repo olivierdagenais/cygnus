@@ -25,6 +25,15 @@ IF NOT EXIST "%SETUP_PATH%" (
  
 SET PACKAGES=cygwin
 Call :LoadPackages "%~dp0packages.txt"
+IF "%~1" NEQ "" (
+	IF EXIST "%~1" (
+		Call :LoadPackages "%~1"
+	) ELSE (
+		ECHO *** Adding the following packages %~1...
+		SET PACKAGES=!PACKAGES!,%~1
+		ECHO *** Packages %~1 added.
+	)
+)
 
 REM -- These are necessary for apt-cyg install, do not change. Any duplicates will be ignored.
 SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2
