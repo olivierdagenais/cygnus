@@ -40,7 +40,7 @@ SET PACKAGES=%PACKAGES%,wget,tar,gawk,bzip2
 
 REM -- More info on command line options at: https://cygwin.com/faq/faq.html#faq.setup.cli
 ECHO *** Installing Cygwin and packages...
-"%SETUP_PATH%" --quiet-mode --no-desktop --download --local-install --site %SITE% --local-package-dir "%LOCALDIR%" --root "%ROOTDIR%" --packages %PACKAGES%
+"%SETUP_PATH%" --quiet-mode --upgrade-also --no-desktop --download --local-install --site %SITE% --local-package-dir "%LOCALDIR%" --root "%ROOTDIR%" --packages %PACKAGES%
 
 ECHO.
 ECHO.
